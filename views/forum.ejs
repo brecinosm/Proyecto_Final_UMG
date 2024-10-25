@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foro</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+            <h2>Foro de Preguntas y Respuestas</h2>
+            <a href="/logout" class="logout">Cerrar Sesión</a>
+        </div>
+        
+        <a href="/forum/ask" class="back-to-forum">Hacer una pregunta</a>
+        
+        <ul>
+            <% questions.forEach(function(question) { %>
+                <li>
+                    <a href="/forum/question/<%= question.id %>"><%= question.title %></a> - <%= question.username %>
+                </li>
+            <% }) %>
+        </ul>
+    </div>
+</body>
+</html>

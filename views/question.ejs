@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= question.title %></title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h2 class="question-title"><%= question.title %></h2>
+        <p class="question-content"><%= question.content %></p>
+
+        <h3>Respuestas</h3>
+        <ul class="answer-list">
+            <% answers.forEach(function(answer) { %>
+                <li><%= answer.content %></li>
+            <% }) %>
+        </ul>
+
+        <form action="/forum/answer/<%= question.id %>" method="POST">
+            <textarea name="content" placeholder="Escribe tu respuesta" required></textarea>
+            <button type="submit">Responder</button>
+        </form>
+
+        <!-- Botón para volver al foro -->
+        <a href="/forum" class="back-to-forum">Volver al Foro</a>
+    </div>
+</body>
+</html>
